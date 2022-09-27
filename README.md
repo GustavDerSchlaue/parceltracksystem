@@ -1,3 +1,7 @@
+# SWKOM Projekt
+Von Voss
+Hamburger
+
 # Swagger generated server
 
 Spring Boot Server 
