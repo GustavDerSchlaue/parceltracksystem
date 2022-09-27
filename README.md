@@ -1,6 +1,7 @@
 # SWKOM Projekt
-Von Voss
-Hamburger
+Von Voss.
+
+Hamburger.
 
 # Swagger generated server
 
