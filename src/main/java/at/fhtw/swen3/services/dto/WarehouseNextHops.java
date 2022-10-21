@@ -13,12 +13,12 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import javax.annotation.Generated;
 
 /**
- * WarehouseAllOfNextHops
+ * WarehouseNextHops
  */
 
 @JsonTypeName("warehouse_allOf_nextHops")
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-10-11T11:34:05.308118Z[Etc/UTC]")
-public class WarehouseAllOfNextHops {
+public class WarehouseNextHops {
 
   @JsonProperty("traveltimeMins")
   private Integer traveltimeMins;
@@ -26,7 +26,7 @@ public class WarehouseAllOfNextHops {
   @JsonProperty("hop")
   private Hop hop;
 
-  public WarehouseAllOfNextHops traveltimeMins(Integer traveltimeMins) {
+  public WarehouseNextHops traveltimeMins(Integer traveltimeMins) {
     this.traveltimeMins = traveltimeMins;
     return this;
   }
@@ -45,7 +45,7 @@ public class WarehouseAllOfNextHops {
     this.traveltimeMins = traveltimeMins;
   }
 
-  public WarehouseAllOfNextHops hop(Hop hop) {
+  public WarehouseNextHops hop(Hop hop) {
     this.hop = hop;
     return this;
   }
@@ -72,9 +72,9 @@ public class WarehouseAllOfNextHops {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    WarehouseAllOfNextHops warehouseAllOfNextHops = (WarehouseAllOfNextHops) o;
-    return Objects.equals(this.traveltimeMins, warehouseAllOfNextHops.traveltimeMins) &&
-        Objects.equals(this.hop, warehouseAllOfNextHops.hop);
+    WarehouseNextHops warehouseNextHops = (WarehouseNextHops) o;
+    return Objects.equals(this.traveltimeMins, warehouseNextHops.traveltimeMins) &&
+        Objects.equals(this.hop, warehouseNextHops.hop);
   }
 
   @Override
@@ -85,7 +85,7 @@ public class WarehouseAllOfNextHops {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class WarehouseAllOfNextHops {\n");
+    sb.append("class WarehouseNextHops {\n");
     sb.append("    traveltimeMins: ").append(toIndentedString(traveltimeMins)).append("\n");
     sb.append("    hop: ").append(toIndentedString(hop)).append("\n");
     sb.append("}");
