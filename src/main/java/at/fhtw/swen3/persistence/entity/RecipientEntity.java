@@ -29,6 +29,7 @@ public class RecipientEntity {
     @NotNull(message = "Postalcode can not be null")
     @NotBlank(message = "Postalcode cannot be blank")
     @Size(min = 4, max = 10, message = "A valid Postalcode must contain more than 4 characters and max 10")
+    @Pattern(regexp = "[a-zA-Z0-9]+", message = "must not contain special characters")
     private String postalCode;
     @NotNull(message = "City cannot be null")
     @NotBlank(message = "City cannot be blank")
