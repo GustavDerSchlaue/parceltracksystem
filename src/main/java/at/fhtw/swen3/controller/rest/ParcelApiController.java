@@ -1,7 +1,7 @@
-package at.fhtw.swen3.services.impl;
+package at.fhtw.swen3.controller.rest;
 
 
-import at.fhtw.swen3.services.WarehouseApi;
+import at.fhtw.swen3.controller.ParcelApi;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.context.request.NativeWebRequest;
@@ -11,12 +11,12 @@ import javax.annotation.Generated;
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-10-11T11:34:05.308118Z[Etc/UTC]")
 @Controller
-public class WarehouseApiController implements WarehouseApi {
+public class ParcelApiController implements ParcelApi {
 
     private final NativeWebRequest request;
 
     @Autowired
-    public WarehouseApiController(NativeWebRequest request) {
+    public ParcelApiController(NativeWebRequest request) {
         this.request = request;
     }
 

@@ -1,14 +1,14 @@
 package at.fhtw.swen3.services.mapper;
 
-import at.fhtw.swen3.persistence.entity.GeoCoordinateEntity;
-import at.fhtw.swen3.persistence.entity.TruckEntity;
+import at.fhtw.swen3.persistence.entities.GeoCoordinateEntity;
+import at.fhtw.swen3.persistence.entities.TruckEntity;
 import at.fhtw.swen3.services.dto.GeoCoordinate;
 import at.fhtw.swen3.services.dto.Truck;
 import javax.annotation.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-10-23T19:56:07+0200",
+    date = "2022-11-04T16:16:33+0100",
     comments = "version: 1.4.2.Final, compiler: javac, environment: Java 17.0.2 (Oracle Corporation)"
 )
 public class TruckMapperImpl implements TruckMapper {
