@@ -19,8 +19,8 @@ public class WarehouseNextHopsEntity {
     @Column(name = "id", nullable = false)
     private Long id;
     private Integer traveltimeMins;
-    @ManyToOne
-    @JoinColumn(name = "hop_id")
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @JoinColumn(name = "hop_id", nullable = false, updatable = false)
     private HopEntity hop;
 
 }

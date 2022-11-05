@@ -32,12 +32,12 @@ public class ParcelEntity {
     private List<HopArrivalEntity> futureHops = new ArrayList<>();
     @Positive(message = "A valid weight must be positive and cannot be 0")
     private Float weight;
-    @ManyToOne
-    @JoinColumn(name = "recipient_id")
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @JoinColumn(name = "recipient_id", nullable = false, updatable = false)
     @NotNull(message = "Recipient cannot be null")
     private RecipientEntity recipient;
-    @ManyToOne
-    @JoinColumn(name = "sender_id")
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @JoinColumn(name = "sender_id", nullable = false, updatable = false)
     @NotNull(message = "Sender cannot be null")
     private RecipientEntity sender;
 }
