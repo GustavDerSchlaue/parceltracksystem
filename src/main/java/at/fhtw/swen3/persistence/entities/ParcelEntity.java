@@ -16,6 +16,7 @@ import javax.validation.constraints.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name="parcel")
 public class ParcelEntity {
 
     @Id
@@ -23,14 +24,20 @@ public class ParcelEntity {
     private Long id;
     @NotNull(message = "TrackingId cannot be null")
     @NotBlank(message = "TrackingId cannot be blank")
-    @Size(min = 1, max = 999999999, message = "A valid trackingId must contain more than 1 characters and max 999999999")
+    @Pattern(regexp = "^[A-Z0-9]{9}$", message = "A valid trackingId must not contain special characters and must have 9 digits")
+    @Column
     private String trackingId;
+    @Enumerated(EnumType.STRING)
+    @Column
     private TrackingInformation.StateEnum state;
     @NotNull(message = "VisitedHops cannot be null")
+    @ManyToMany
     private List<HopArrivalEntity> visitedHops = new ArrayList<>();
     @NotNull(message = "FutureHops cannot be null")
+    @ManyToMany
     private List<HopArrivalEntity> futureHops = new ArrayList<>();
     @Positive(message = "A valid weight must be positive and cannot be 0")
+    @Column
     private Float weight;
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     @JoinColumn(name = "recipient_id", nullable = false, updatable = false)

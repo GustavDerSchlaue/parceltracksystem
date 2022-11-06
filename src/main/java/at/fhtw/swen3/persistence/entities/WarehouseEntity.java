@@ -15,6 +15,7 @@ import javax.validation.constraints.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name="warehouse")
 public class WarehouseEntity {
 
     @Id
@@ -22,9 +23,11 @@ public class WarehouseEntity {
     @Column(name = "id", nullable = false)
     private Long id;
     @Size(min = 4, max = 20, message = "A valid numberPlate must contain more than 4 characters and max 20")
+    @Column
     private Integer level;
     @NotNull(message = "NextHops cannot be null")
-    private List<WarehouseNextHopsEntity> nextHops = new ArrayList<>();
+    @ManyToMany
+    private List<@NotNull WarehouseNextHopsEntity> nextHops = new ArrayList<>();
 
 
 }

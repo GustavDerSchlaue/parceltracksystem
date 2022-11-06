@@ -22,5 +22,6 @@ public class ErrorEntity {
     @NotNull(message = "Errormessage cannot be null")
     @NotBlank(message = "Errormessage cannot be blank")
     @Size(min = 2, max = 100000, message = "A valid errormessage must contain more than 2 characters and max 100000")
+    @Column
     private String errorMessage;
 }
