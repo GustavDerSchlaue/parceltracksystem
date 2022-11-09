@@ -14,7 +14,7 @@ import javax.annotation.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-11-06T20:14:35+0100",
+    date = "2022-11-08T12:31:16+0100",
     comments = "version: 1.4.2.Final, compiler: javac, environment: Java 17.0.2 (Oracle Corporation)"
 )
 public class WarehouseMapperImpl implements WarehouseMapper {
@@ -27,6 +27,12 @@ public class WarehouseMapperImpl implements WarehouseMapper {
 
         Warehouse warehouse = new Warehouse();
 
+        warehouse.hopType( warehouseEntity.getHopType() );
+        warehouse.code( warehouseEntity.getCode() );
+        warehouse.description( warehouseEntity.getDescription() );
+        warehouse.processingDelayMins( warehouseEntity.getProcessingDelayMins() );
+        warehouse.locationName( warehouseEntity.getLocationName() );
+        warehouse.locationCoordinates( geoCoordinateEntityToGeoCoordinate( warehouseEntity.getLocationCoordinates() ) );
         warehouse.setLevel( warehouseEntity.getLevel() );
         warehouse.setNextHops( warehouseNextHopsEntityListToWarehouseNextHopsList( warehouseEntity.getNextHops() ) );
 
@@ -41,6 +47,12 @@ public class WarehouseMapperImpl implements WarehouseMapper {
 
         WarehouseEntity warehouseEntity = new WarehouseEntity();
 
+        warehouseEntity.setHopType( warehouse.getHopType() );
+        warehouseEntity.setCode( warehouse.getCode() );
+        warehouseEntity.setDescription( warehouse.getDescription() );
+        warehouseEntity.setProcessingDelayMins( warehouse.getProcessingDelayMins() );
+        warehouseEntity.setLocationName( warehouse.getLocationName() );
+        warehouseEntity.setLocationCoordinates( geoCoordinateToGeoCoordinateEntity( warehouse.getLocationCoordinates() ) );
         warehouseEntity.setLevel( warehouse.getLevel() );
         warehouseEntity.setNextHops( warehouseNextHopsListToWarehouseNextHopsEntityList( warehouse.getNextHops() ) );
 

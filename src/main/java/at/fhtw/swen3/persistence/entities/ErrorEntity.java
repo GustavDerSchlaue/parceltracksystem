@@ -13,6 +13,7 @@ import javax.validation.constraints.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name="error")
 public class ErrorEntity {
 
     @Id

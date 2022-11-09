@@ -4,11 +4,11 @@ C:\Users\leonv\Desktop\REPOS\5. Semester\SWKOM\parceltracksystem\src\main\java\a
 C:\Users\leonv\Desktop\REPOS\5. Semester\SWKOM\parceltracksystem\src\main\java\at\fhtw\swen3\persistence\repositories\GeoCoordinateRepository.java
 C:\Users\leonv\Desktop\REPOS\5. Semester\SWKOM\parceltracksystem\src\main\java\at\fhtw\swen3\services\dto\Recipient.java
 C:\Users\leonv\Desktop\REPOS\5. Semester\SWKOM\parceltracksystem\src\main\java\at\fhtw\swen3\services\mapper\HopArrivalMapper.java
-C:\Users\leonv\Desktop\REPOS\5. Semester\SWKOM\parceltracksystem\src\main\java\at\fhtw\swen3\persistence\repositories\TruckRepository.java
 C:\Users\leonv\Desktop\REPOS\5. Semester\SWKOM\parceltracksystem\src\main\java\at\fhtw\swen3\services\dto\Hop.java
 C:\Users\leonv\Desktop\REPOS\5. Semester\SWKOM\parceltracksystem\src\main\java\at\fhtw\swen3\services\mapper\GeoCoordinateMapper.java
 C:\Users\leonv\Desktop\REPOS\5. Semester\SWKOM\parceltracksystem\src\main\java\at\fhtw\swen3\services\mapper\WarehouseMapper.java
 C:\Users\leonv\Desktop\REPOS\5. Semester\SWKOM\parceltracksystem\src\main\java\at\fhtw\swen3\services\dto\GeoCoordinate.java
+C:\Users\leonv\Desktop\REPOS\5. Semester\SWKOM\parceltracksystem\src\main\java\at\fhtw\swen3\persistence\repositories\ErrorRepository.java
 C:\Users\leonv\Desktop\REPOS\5. Semester\SWKOM\parceltracksystem\src\main\java\at\fhtw\swen3\services\dto\NewParcelInfo.java
 C:\Users\leonv\Desktop\REPOS\5. Semester\SWKOM\parceltracksystem\src\main\java\at\fhtw\swen3\services\dto\HopArrival.java
 C:\Users\leonv\Desktop\REPOS\5. Semester\SWKOM\parceltracksystem\src\main\java\at\fhtw\swen3\persistence\entities\RecipientEntity.java
@@ -44,7 +44,6 @@ C:\Users\leonv\Desktop\REPOS\5. Semester\SWKOM\parceltracksystem\src\main\java\a
 C:\Users\leonv\Desktop\REPOS\5. Semester\SWKOM\parceltracksystem\src\main\java\at\fhtw\swen3\services\dto\Error.java
 C:\Users\leonv\Desktop\REPOS\5. Semester\SWKOM\parceltracksystem\src\main\java\at\fhtw\swen3\persistence\entities\GeoCoordinateEntity.java
 C:\Users\leonv\Desktop\REPOS\5. Semester\SWKOM\parceltracksystem\src\main\java\at\fhtw\swen3\controller\WarehouseApi.java
-C:\Users\leonv\Desktop\REPOS\5. Semester\SWKOM\parceltracksystem\src\main\java\at\fhtw\swen3\persistence\repositories\WarehouseRepository.java
 C:\Users\leonv\Desktop\REPOS\5. Semester\SWKOM\parceltracksystem\src\main\java\at\fhtw\swen3\services\dto\WarehouseNextHops.java
 C:\Users\leonv\Desktop\REPOS\5. Semester\SWKOM\parceltracksystem\src\main\java\at\fhtw\swen3\persistence\entities\WarehouseNextHopsEntity.java
 C:\Users\leonv\Desktop\REPOS\5. Semester\SWKOM\parceltracksystem\src\main\java\at\fhtw\swen3\services\validation\ParcelEntityValidator.java

@@ -31,10 +31,10 @@ public class ParcelEntity {
     @Column
     private TrackingInformation.StateEnum state;
     @NotNull(message = "VisitedHops cannot be null")
-    @ManyToMany
+    @OneToMany
     private List<HopArrivalEntity> visitedHops = new ArrayList<>();
     @NotNull(message = "FutureHops cannot be null")
-    @ManyToMany
+    @OneToMany
     private List<HopArrivalEntity> futureHops = new ArrayList<>();
     @Positive(message = "A valid weight must be positive and cannot be 0")
     @Column
