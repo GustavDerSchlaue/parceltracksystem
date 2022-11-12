@@ -61,6 +61,7 @@ jobs:
           use_existing_version_if_available: false
           application_name: parcelapi3
           environment_name: Parcelapi3-env
-          version_label: Sample Application
+          version_label: Deployment Application
           region: us-east-1
           deployment_package: parceltrackystem-1.22.1.jar.original
+          
