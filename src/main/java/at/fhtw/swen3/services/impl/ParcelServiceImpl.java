@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class ParcelServiceImpl implements ParcelService {
 
-    ParcelRepository parcelRepository;
+    public ParcelRepository parcelRepository;
 
     public ParcelServiceImpl(ParcelRepository parcelRepository) {
         this.parcelRepository = parcelRepository;
