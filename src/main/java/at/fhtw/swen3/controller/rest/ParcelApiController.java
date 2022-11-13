@@ -2,22 +2,32 @@ package at.fhtw.swen3.controller.rest;
 
 
 import at.fhtw.swen3.controller.ParcelApi;
+import at.fhtw.swen3.services.ParcelService;
+import at.fhtw.swen3.services.dto.NewParcelInfo;
+import at.fhtw.swen3.services.dto.Parcel;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.context.request.NativeWebRequest;
 
 import java.util.Optional;
 import javax.annotation.Generated;
-
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-10-11T11:34:05.308118Z[Etc/UTC]")
 @Controller
+@Slf4j
 public class ParcelApiController implements ParcelApi {
 
     private final NativeWebRequest request;
+    private final ParcelService parcelService;
 
     @Autowired
-    public ParcelApiController(NativeWebRequest request) {
+    public ParcelApiController(NativeWebRequest request, ParcelService parcelService) {
         this.request = request;
+        this.parcelService = parcelService;
     }
 
     @Override
@@ -25,4 +35,16 @@ public class ParcelApiController implements ParcelApi {
         return Optional.ofNullable(request);
     }
 
+    @RequestMapping(
+            method = RequestMethod.POST,
+            value = "/parcel",
+            produces = { "application/json" },
+            consumes = { "application/json" }
+    )
+    @Override
+    public ResponseEntity<NewParcelInfo> submitParcel(Parcel parcel) {
+        log.info("submitParcel in ParcelApiController");
+        parcelService.submitNewParcel(parcel);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }

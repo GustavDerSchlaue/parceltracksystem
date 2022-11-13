@@ -14,7 +14,7 @@ import javax.validation.constraints.Positive;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name="warehouseNextHops")
+@Table(name="warehouseNextHop")
 public class WarehouseNextHopsEntity {
 
     @Id
@@ -24,8 +24,7 @@ public class WarehouseNextHopsEntity {
     @Column
     @Positive(message = "Description cannot be null")
     private Integer traveltimeMins;
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    @JoinColumn(name = "hop_id", nullable = false, updatable = false)
+    @OneToOne
     @NotNull(message = "Hop cannot be null")
     private HopEntity hop;
 

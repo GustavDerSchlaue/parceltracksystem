@@ -13,7 +13,7 @@ import javax.validation.constraints.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name="hopArrival")
+@Table(name="hop")
 public class HopEntity {
 
     @Id

@@ -13,13 +13,8 @@ import javax.validation.constraints.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name="truck")
 public class TruckEntity extends HopEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", nullable = false)
-    private Long id;
     @NotNull(message = "LogisticsPartner cannot be null")
     @NotBlank(message = "LogisticsPartner cannot be blank")
     @Column
