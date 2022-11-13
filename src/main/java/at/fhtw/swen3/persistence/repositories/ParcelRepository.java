@@ -9,4 +9,5 @@ import org.springframework.stereotype.Repository;
 public interface ParcelRepository extends JpaRepository<ParcelEntity, Long> {
 
     ParcelEntity findById(int id);
+    ParcelEntity findByTrackingId(String trackingId);
 }

@@ -20,6 +20,7 @@ import javax.validation.constraints.*;
 public class ParcelEntity {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name ="Id", nullable = false)
     private Long id;
     @NotNull(message = "TrackingId cannot be null")
@@ -39,12 +40,12 @@ public class ParcelEntity {
     @Positive(message = "A valid weight must be positive and cannot be 0")
     @Column
     private Float weight;
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    @JoinColumn(name = "recipient_id", nullable = false, updatable = false)
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "recipient_id", referencedColumnName = "id")
     @NotNull(message = "Recipient cannot be null")
     private RecipientEntity recipient;
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    @JoinColumn(name = "sender_id", nullable = false, updatable = false)
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "sender_id", referencedColumnName = "id")
     @NotNull(message = "Sender cannot be null")
     private RecipientEntity sender;
 }

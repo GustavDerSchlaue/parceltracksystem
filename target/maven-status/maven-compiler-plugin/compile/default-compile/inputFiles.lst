@@ -44,11 +44,13 @@ C:\Users\leonv\Desktop\REPOS\5. Semester\SWKOM\parceltracksystem\src\main\java\a
 C:\Users\leonv\Desktop\REPOS\5. Semester\SWKOM\parceltracksystem\src\main\java\at\fhtw\swen3\services\dto\Error.java
 C:\Users\leonv\Desktop\REPOS\5. Semester\SWKOM\parceltracksystem\src\main\java\at\fhtw\swen3\persistence\entities\GeoCoordinateEntity.java
 C:\Users\leonv\Desktop\REPOS\5. Semester\SWKOM\parceltracksystem\src\main\java\at\fhtw\swen3\controller\WarehouseApi.java
+C:\Users\leonv\Desktop\REPOS\5. Semester\SWKOM\parceltracksystem\src\main\java\at\fhtw\swen3\persistence\repositories\WarehouseRepository.java
 C:\Users\leonv\Desktop\REPOS\5. Semester\SWKOM\parceltracksystem\src\main\java\at\fhtw\swen3\services\dto\WarehouseNextHops.java
 C:\Users\leonv\Desktop\REPOS\5. Semester\SWKOM\parceltracksystem\src\main\java\at\fhtw\swen3\persistence\entities\WarehouseNextHopsEntity.java
-C:\Users\leonv\Desktop\REPOS\5. Semester\SWKOM\parceltracksystem\src\main\java\at\fhtw\swen3\services\validation\ParcelEntityValidator.java
 C:\Users\leonv\Desktop\REPOS\5. Semester\SWKOM\parceltracksystem\src\main\java\at\fhtw\swen3\persistence\repositories\RecipientRepository.java
 C:\Users\leonv\Desktop\REPOS\5. Semester\SWKOM\parceltracksystem\src\main\java\at\fhtw\swen3\services\mapper\ParcelMapper.java
+C:\Users\leonv\Desktop\REPOS\5. Semester\SWKOM\parceltracksystem\src\main\java\at\fhtw\swen3\services\validation\Validator.java
+C:\Users\leonv\Desktop\REPOS\5. Semester\SWKOM\parceltracksystem\src\main\java\at\fhtw\swen3\configuration\AppConfig.java
 C:\Users\leonv\Desktop\REPOS\5. Semester\SWKOM\parceltracksystem\src\main\java\at\fhtw\swen3\services\mapper\ErrorMapper.java
 C:\Users\leonv\Desktop\REPOS\5. Semester\SWKOM\parceltracksystem\src\main\java\at\fhtw\swen3\persistence\entities\TransferwarehouseEntity.java
 C:\Users\leonv\Desktop\REPOS\5. Semester\SWKOM\parceltracksystem\src\main\java\at\fhtw\swen3\services\mapper\NewParcelInfoMapper.java

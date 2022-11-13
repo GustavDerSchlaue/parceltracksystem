@@ -10,4 +10,5 @@ import org.springframework.stereotype.Repository;
 public interface RecipientRepository extends JpaRepository<RecipientEntity, Long> {
 
     RecipientEntity findById(int id);
+    RecipientEntity findByName(String name);
 }
