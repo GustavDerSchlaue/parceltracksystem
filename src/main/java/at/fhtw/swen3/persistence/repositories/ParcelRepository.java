@@ -7,7 +7,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ParcelRepository extends JpaRepository<ParcelEntity, Long> {
-
-    ParcelEntity findById(int id);
     ParcelEntity findByTrackingId(String trackingId);
 }

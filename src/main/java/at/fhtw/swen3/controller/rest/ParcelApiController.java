@@ -2,9 +2,11 @@ package at.fhtw.swen3.controller.rest;
 
 
 import at.fhtw.swen3.controller.ParcelApi;
+import at.fhtw.swen3.persistence.entities.ParcelEntity;
 import at.fhtw.swen3.services.ParcelService;
 import at.fhtw.swen3.services.dto.NewParcelInfo;
 import at.fhtw.swen3.services.dto.Parcel;
+import at.fhtw.swen3.services.mapper.ParcelMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -43,8 +45,10 @@ public class ParcelApiController implements ParcelApi {
     )
     @Override
     public ResponseEntity<NewParcelInfo> submitParcel(Parcel parcel) {
-        log.info("submitParcel in ParcelApiController");
-        parcelService.submitNewParcel(parcel);
-        return new ResponseEntity<>(HttpStatus.OK);
+        log.info("mapping parcelDto to parcelEntity in ParcelApiController");
+        ParcelEntity parcelEntity = ParcelMapper.INSTANCE.dtoToEntity(parcel);
+        log.info("submit parcelEntity in ParcelApiController in submitParcel()");
+        NewParcelInfo newParcelInfo = parcelService.submitNewParcel(parcelEntity);
+        return new ResponseEntity<NewParcelInfo>(newParcelInfo, HttpStatus.OK);
     }
 }
