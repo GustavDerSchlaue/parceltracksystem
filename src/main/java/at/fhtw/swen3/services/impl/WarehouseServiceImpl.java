@@ -18,4 +18,15 @@ public class WarehouseServiceImpl implements WarehouseService {
     private final WarehouseNextHopsRepository warehouseNextHopsRepository;
     private final Validator validator;
 
+    @Override
+    public boolean findWarehousebyCode(String code){
+        WarehouseEntity warehouse = warehouserepository.findByCode(code);
+        if (warehouse == null){
+
+            log.info("Warehouse with code " + code + " NOT FOUND");
+            return false;
+        }
+        return true;
+    }
+
 }

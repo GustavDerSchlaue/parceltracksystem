@@ -11,4 +11,11 @@ public interface ParcelService {
     NewParcelInfo submitNewParcel(@NotNull ParcelEntity parcelEntity);
 
     Parcel getTrackingInformation(String trackingId);
+
+    NewParcelInfo reportParcelHop(@NotNull String trackingId, @NotNull String code);
+
+    boolean reportParcelDelivery(@NotNull String trackingId);
+
+    boolean findParcelbyTrackindID(String trackingId);
 }
+
