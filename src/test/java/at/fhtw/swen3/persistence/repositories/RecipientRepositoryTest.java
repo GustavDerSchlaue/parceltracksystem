@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class RecipientRepositoryTest {
-
+/*
     @Autowired
     private RecipientRepository recipientRepository;
 
@@ -26,5 +26,5 @@ class RecipientRepositoryTest {
         recipientRepository.save(recipientEntity);
 
         assertEquals(recipientRepository.findByName(recipientEntity.getName()).getName(), recipientEntity.getName());
-    }
+    }*/
 }
