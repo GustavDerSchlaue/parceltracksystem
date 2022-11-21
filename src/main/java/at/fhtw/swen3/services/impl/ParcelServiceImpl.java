@@ -99,14 +99,8 @@ public class ParcelServiceImpl implements ParcelService {
             log.info("Parcel with tracking id " + trackingId + " NOT FOUND");
             return false;
         }
-        /*
-            TO BE IMPLEMENTED WHEN HOPS READY
-        */
-        /*List<HopArrivalEntity> list = parcel.getVisitedHops();
-        list.add(parcel.getFutureHops().get(0));
-        parcel.setVisitedHops(list);
-        parcel.setFutureHops(Collections.<HopArrivalEntity>emptyList());
-        parcelRepository.save(parcel);*/
+        parcel.setState(TrackingInformation.StateEnum.DELIVERED);
+        parcelRepository.save(parcel);
         log.info("Parcel with tracking id " + trackingId + " was DELIEVERED");
         return true;
     }
