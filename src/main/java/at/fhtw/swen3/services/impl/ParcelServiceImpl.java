@@ -100,7 +100,9 @@ public class ParcelServiceImpl implements ParcelService {
             return false;
         }
         parcel.setState(TrackingInformation.StateEnum.DELIVERED);
-        parcelRepository.save(parcel);
+        System.out.println("_____________________________________________");
+        System.out.println(parcelRepository.save(parcel));
+        System.out.println("_____________________________________________");
         log.info("Parcel with tracking id " + trackingId + " was DELIEVERED");
         return true;
     }
