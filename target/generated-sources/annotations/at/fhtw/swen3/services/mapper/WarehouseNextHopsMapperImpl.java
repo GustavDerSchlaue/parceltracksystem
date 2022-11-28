@@ -6,8 +6,8 @@ import javax.annotation.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-11-18T17:56:21+0100",
-    comments = "version: 1.4.2.Final, compiler: javac, environment: Java 17.0.3 (Amazon.com Inc.)"
+    date = "2022-11-28T02:11:52+0100",
+    comments = "version: 1.4.2.Final, compiler: javac, environment: Java 1.8.0_352 (Amazon.com Inc.)"
 )
 public class WarehouseNextHopsMapperImpl implements WarehouseNextHopsMapper {
 
