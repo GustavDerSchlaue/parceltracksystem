@@ -27,7 +27,7 @@ public class HopEntity {
     private String hopType;
     @NotNull(message = "Code cannot be null")
     @NotBlank(message = "Code cannot be blank")
-    @Size(min = 2, max = 100000, message = "A valid code must contain more than 2 characters and max 100000")
+    @Pattern(regexp = "^[A-Z]{4}\\d{1,4}$", message = "A valid code must match 4 characters and 1-4 digits for example: ABCD2345")
     @Column
     private String code;
     @NotNull(message = "Description cannot be null")
@@ -44,6 +44,7 @@ public class HopEntity {
     @Column
     private String locationName;
     @ManyToOne
+    @NotNull(message = "locationCoordinates cannot be null")
     @JoinColumn(name = "locationCoordinates_id")
     private GeoCoordinateEntity locationCoordinates;
 }
