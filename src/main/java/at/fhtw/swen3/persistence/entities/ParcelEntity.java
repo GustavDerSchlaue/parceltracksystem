@@ -29,6 +29,7 @@ public class ParcelEntity {
     @Column
     private String trackingId;
     @Enumerated(EnumType.STRING)
+    @NotNull(message = "State cannot be null")
     @Column
     private TrackingInformation.StateEnum state;
     @NotNull(message = "VisitedHops cannot be null")
@@ -37,7 +38,7 @@ public class ParcelEntity {
     @NotNull(message = "FutureHops cannot be null")
     @OneToMany
     private List<HopArrivalEntity> futureHops = new ArrayList<>();
-    @Positive(message = "A valid weight must be positive and cannot be 0")
+    @DecimalMin(value = "0.1", inclusive = false, message = "A valid weight must be positive and cannot be 0")
     @Column
     private Float weight;
     @ManyToOne(cascade = CascadeType.ALL)
