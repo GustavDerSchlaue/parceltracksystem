@@ -9,31 +9,31 @@ class ParcelServiceImplTest {
 
     @Test
     void reportParcelDelivery() {
-        assertEquals(true,true);
+        assertTrue(true);
     }
 
     @Test
     void submitNewParcel() {
-        assertEquals(true,true);
+        assertTrue(true);
     }
 
     @Test
     void getTrackingInformation() {
-        assertEquals(true,true);
+        assertTrue(true);
     }
 
     @Test
     void reportParcelHop() {
-        assertEquals(true,true);
+        assertTrue(true);
     }
 
     @Test
     void testReportParcelDelivery() {
-        assertEquals(true,true);
+        assertTrue(true);
     }
 
     @Test
     void findParcelbyTrackindID() {
-        assertEquals(true,true);
+        assertTrue(true);
     }
 }

@@ -1,13 +1,15 @@
 package at.fhtw.swen3.services.mapper;
 
+import at.fhtw.swen3.persistence.entities.GeoCoordinateEntity;
 import at.fhtw.swen3.persistence.entities.TransferwarehouseEntity;
+import at.fhtw.swen3.services.dto.GeoCoordinate;
 import at.fhtw.swen3.services.dto.Transferwarehouse;
 import javax.annotation.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-11-28T02:11:52+0100",
-    comments = "version: 1.4.2.Final, compiler: javac, environment: Java 1.8.0_352 (Amazon.com Inc.)"
+    date = "2023-01-14T21:06:43+0100",
+    comments = "version: 1.4.2.Final, compiler: javac, environment: Java 17.0.2 (Oracle Corporation)"
 )
 public class TransferwarehouseMapperImpl implements TransferwarehouseMapper {
 
@@ -19,6 +21,12 @@ public class TransferwarehouseMapperImpl implements TransferwarehouseMapper {
 
         Transferwarehouse transferwarehouse = new Transferwarehouse();
 
+        transferwarehouse.hopType( transferwarehouseEntity.getHopType() );
+        transferwarehouse.code( transferwarehouseEntity.getCode() );
+        transferwarehouse.description( transferwarehouseEntity.getDescription() );
+        transferwarehouse.processingDelayMins( transferwarehouseEntity.getProcessingDelayMins() );
+        transferwarehouse.locationName( transferwarehouseEntity.getLocationName() );
+        transferwarehouse.locationCoordinates( geoCoordinateEntityToGeoCoordinate( transferwarehouseEntity.getLocationCoordinates() ) );
         transferwarehouse.setRegionGeoJson( transferwarehouseEntity.getRegionGeoJson() );
         transferwarehouse.setLogisticsPartner( transferwarehouseEntity.getLogisticsPartner() );
         transferwarehouse.setLogisticsPartnerUrl( transferwarehouseEntity.getLogisticsPartnerUrl() );
@@ -34,10 +42,42 @@ public class TransferwarehouseMapperImpl implements TransferwarehouseMapper {
 
         TransferwarehouseEntity transferwarehouseEntity = new TransferwarehouseEntity();
 
+        transferwarehouseEntity.setHopType( transferwarehouse.getHopType() );
+        transferwarehouseEntity.setCode( transferwarehouse.getCode() );
+        transferwarehouseEntity.setDescription( transferwarehouse.getDescription() );
+        transferwarehouseEntity.setProcessingDelayMins( transferwarehouse.getProcessingDelayMins() );
+        transferwarehouseEntity.setLocationName( transferwarehouse.getLocationName() );
+        transferwarehouseEntity.setLocationCoordinates( geoCoordinateToGeoCoordinateEntity( transferwarehouse.getLocationCoordinates() ) );
         transferwarehouseEntity.setRegionGeoJson( transferwarehouse.getRegionGeoJson() );
         transferwarehouseEntity.setLogisticsPartner( transferwarehouse.getLogisticsPartner() );
         transferwarehouseEntity.setLogisticsPartnerUrl( transferwarehouse.getLogisticsPartnerUrl() );
 
         return transferwarehouseEntity;
+    }
+
+    protected GeoCoordinate geoCoordinateEntityToGeoCoordinate(GeoCoordinateEntity geoCoordinateEntity) {
+        if ( geoCoordinateEntity == null ) {
+            return null;
+        }
+
+        GeoCoordinate geoCoordinate = new GeoCoordinate();
+
+        geoCoordinate.setLat( geoCoordinateEntity.getLat() );
+        geoCoordinate.setLon( geoCoordinateEntity.getLon() );
+
+        return geoCoordinate;
+    }
+
+    protected GeoCoordinateEntity geoCoordinateToGeoCoordinateEntity(GeoCoordinate geoCoordinate) {
+        if ( geoCoordinate == null ) {
+            return null;
+        }
+
+        GeoCoordinateEntity geoCoordinateEntity = new GeoCoordinateEntity();
+
+        geoCoordinateEntity.setLat( geoCoordinate.getLat() );
+        geoCoordinateEntity.setLon( geoCoordinate.getLon() );
+
+        return geoCoordinateEntity;
     }
 }
