@@ -61,14 +61,17 @@ public class ParcelApiController implements ParcelApi {
             ParcelEntity parcelEntity = ParcelMapper.INSTANCE.dtoToEntity(parcel);
             log.info("submit parcelEntity in ParcelApiController in submitParcel()");
             newParcelInfo = parcelService.submitNewParcel(parcelEntity);
+            log.info("submitparcel CREATED");
             return new ResponseEntity<NewParcelInfo>(newParcelInfo, HttpStatus.CREATED);
         } catch (BLException e) {
             Error error = new Error();
             error.setErrorMessage(e.getInnerException().getMessage());
+            log.error("submitParcel BAD_REQUEST");
             return new ResponseEntity<Error>(error, HttpStatus.BAD_REQUEST);
         } catch (Exception e) {
             Error error = new Error();
             error.setErrorMessage(e.getMessage());
+            log.error("submitParcel BAD_REQUEST");
             return new ResponseEntity<Error>(error, HttpStatus.BAD_REQUEST);
         }
         //TODO Future&Previous Hops
@@ -84,13 +87,17 @@ public class ParcelApiController implements ParcelApi {
     public ResponseEntity<?> trackParcel(String trackingId) {
         TrackingInformation trackingInformation = null;
         try {
+            log.info("trackParcel try to find parcel with given trackingId" + trackingId);
             trackingInformation = parcelService.getTrackingInformation(trackingId);
+            log.info("trackParcel OK");
             return new ResponseEntity<TrackingInformation>(trackingInformation, HttpStatus.OK);
         } catch (BLDataNotFoundException e) {
+            log.info("trackParcel NOT_FOUND");
             return new ResponseEntity(" ", HttpStatus.NOT_FOUND);
         } catch (Exception e) {
             Error error = new Error();
             error.setErrorMessage(e.getMessage());
+            log.error("trackParcel BAD_REQUEST");
             return new ResponseEntity<Error>(error, HttpStatus.BAD_REQUEST);
         }
     }
@@ -115,9 +122,9 @@ public class ParcelApiController implements ParcelApi {
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
             }
         } catch (BLException e) {
-            log.info("ReportParcelDelivery BAD_REQUEST");
             Error error = new Error();
             error.setErrorMessage(e.getMessage());
+            log.error("ReportParcelDelivery BAD_REQUEST");
             return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
         }
     }
@@ -137,18 +144,18 @@ public class ParcelApiController implements ParcelApi {
                     return new ResponseEntity<>(HttpStatus.OK);
                 }
                 else {
-                    log.info("ReportParcelDelivery BAD REQUEST");
+                    log.error("ReportParcelDelivery BAD REQUEST");
                     return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
                 }
             } catch (BLDataNotFoundException e) {
                 log.info("ReportParcelDelivery Parcel NOT FOUND");
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
             } catch (Exception e) {
-                log.info("ReportParcelDelivery BAD REQUEST");
+                log.error("ReportParcelDelivery BAD REQUEST");
                 return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
             }
         }
-        log.info("ReportParcelDelivery Parcel NOT FOUND");
+        log.error("ReportParcelDelivery Parcel NOT FOUND");
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
@@ -162,14 +169,16 @@ public class ParcelApiController implements ParcelApi {
     public ResponseEntity<?> transitionParcel(String trackingId, Parcel parcel){
         try {
             NewParcelInfo newParcelInfo = null;
-            log.info("mapping parcelDto to parcelEntity in ParcelApiController");
+            log.info("mapping parcelDto to parcelEntity in ParcelApiController in transitionParcel");
             ParcelEntity parcelEntity = ParcelMapper.INSTANCE.dtoToEntity(parcel);
-            log.info("submit parcelEntity in ParcelApiController in submitParcel()");
+            log.info("submit parcelEntity in ParcelApiController in transitionParcel");
             newParcelInfo = parcelService.submitNewParcel(trackingId, parcelEntity);
+            log.info("transitionParcel OK");
             return new ResponseEntity<NewParcelInfo>(newParcelInfo, HttpStatus.OK);
         } catch (BLException e) {
             Error error = new Error();
             error.setErrorMessage(e.getMessage());
+            log.error("transitionParcel CONFLICT");
             return new ResponseEntity<Error>(error, HttpStatus.CONFLICT);
         } catch (BLValidationException e) {
             Error error = new Error();
@@ -178,10 +187,12 @@ public class ParcelApiController implements ParcelApi {
             } else {
                 error.setErrorMessage(e.getMessage());
             }
+            log.error("transitionParcel BAD REQUEST");
             return new ResponseEntity<Error>(error, HttpStatus.BAD_REQUEST);
         } catch (Exception e) {
             Error error = new Error();
             error.setErrorMessage(e.getMessage());
+            log.error("transitionParcel BAD REQUEST");
             return new ResponseEntity<Error>(error, HttpStatus.BAD_REQUEST);
         }
     }
