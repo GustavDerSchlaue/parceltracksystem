@@ -1,5 +1,6 @@
 package at.fhtw.swen3.persistence.entities;
 
+import at.fhtw.swen3.services.dto.Hop;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,8 +14,7 @@ import javax.validation.constraints.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name="transferwarehouse")
-public class TransferwarehouseEntity {
+public class TransferwarehouseEntity extends HopEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

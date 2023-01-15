@@ -1,0 +1,5 @@
+at\fhtw\swen3\services\mapper\RecipientMapperTest.class
+at\fhtw\swen3\persistence\repositories\RecipientRepositoryTest.class
+at\fhtw\swen3\persistence\repositories\ParcelRepositoryTest.class
+at\fhtw\swen3\services\impl\ParcelServiceImplTest.class
+at\fhtw\swen3\OpenApiGeneratorApplicationTest.class
