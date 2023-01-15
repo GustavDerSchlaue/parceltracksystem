@@ -10,14 +10,12 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 class RecipientRepositoryTest {
 
-    /*@Autowired
+    @Autowired
     private RecipientRepository recipientRepository;
 
 
     @Test
     void findByName() {
-        assertEquals(true,true);
-
         RecipientEntity recipientEntity = new RecipientEntity();
         recipientEntity.setCountry("Austria");
         recipientEntity.setName("Claudia Klaufmann");
@@ -28,5 +26,5 @@ class RecipientRepositoryTest {
         recipientRepository.save(recipientEntity);
 
         assertEquals(recipientRepository.findByName(recipientEntity.getName()).getName(), recipientEntity.getName());
-    }*/
+    }
 }
