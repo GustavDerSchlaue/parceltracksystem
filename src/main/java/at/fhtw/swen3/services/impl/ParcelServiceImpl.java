@@ -15,7 +15,6 @@ import at.fhtw.swen3.services.validation.Validator;
 import com.mifmif.common.regex.Generex;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import sun.net.www.http.HttpClient;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.constraints.NotNull;
