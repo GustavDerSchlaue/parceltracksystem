@@ -58,6 +58,7 @@ public class ParcelServiceImpl implements ParcelService {
         if(violationSet.isEmpty()) {
             try {
                 //Save Entity in REPO
+                log.info("Validated parcel - found no violations");
                 log.info("Saving ParcelEntity to REPO in submitNewParcel()");
                 recipientRepository.save(parcelEntity.getSender());
                 recipientRepository.save(parcelEntity.getRecipient());
@@ -72,15 +73,18 @@ public class ParcelServiceImpl implements ParcelService {
             log.error("throwing BLException in validation of submitNewParcel()");
             throw new BLValidationException(1L, "Error validating parcel", null);
         }
+        log.info("submitted parcel, returning parcelInfo to ParcelApiController");
         return newParcelInfo;
     }
 
     @Override
     public NewParcelInfo submitNewParcel(@NotNull String trackingID, @NotNull ParcelEntity parcelEntity) throws Exception {
+        log.info("trying to transactionParcel with given trackingId");
         NewParcelInfo newParcelInfo = new NewParcelInfo();
         //set Infos for ParcelEntity
         ParcelEntity parcelEntityByTrackingId = parcelRepository.findByTrackingId(trackingID);
         if(parcelEntityByTrackingId == null) {
+            log.info("trying to transactionParcel with given trackingId - trackingId is not in the database. OK");
             parcelEntity.setTrackingId(trackingID);
             parcelEntity.setState(TrackingInformation.StateEnum.PICKUP);
             parcelEntity.setFutureHops(new ArrayList<>());
@@ -110,8 +114,10 @@ public class ParcelServiceImpl implements ParcelService {
                 throw new BLValidationException(1L, "Error validating parcel", null);
             }
         } else {
+            log.error("Error transferring parcel, trackingId already exists");
             throw new BLException(1L, "Error transferring parcel, trackingId already exists", null);
         }
+        log.info("Transferred parcel successfully, returning parcelinfo");
         return newParcelInfo;
     }
 
@@ -120,9 +126,10 @@ public class ParcelServiceImpl implements ParcelService {
         TrackingInformation trackingInformation = new TrackingInformation();
         ParcelEntity parcel = parcelRepository.findByTrackingId(trackingId);
         if(parcel != null) {
+            log.info("getTrackingInformation(): Parcel found with this trackingId: " + trackingId);
             trackingInformation = TrackingInformationMapper.INSTANCE.entityToDto(parcel);
         } else {
-            log.error("getTrackingInformation(): Parcel not found with this trackingId:" + "trackingId");
+            log.error("getTrackingInformation(): Parcel not found with this trackingId: " + trackingId);
             throw new BLDataNotFoundException(1L, "Parcel not found with this trackingId: " + trackingId, null);
         }
         log.info("Returning TrackingInformationDto from getTrackingInformation() to ParcelApiController");
@@ -135,6 +142,7 @@ public class ParcelServiceImpl implements ParcelService {
         try {
             ParcelEntity parcel = parcelRepository.findByTrackingId(trackingId);
             if(parcel == null) {
+                log.error("Found no parcel with given trackingId: " + trackingId);
                 return null;
             }
             List<HopArrivalEntity> visitedHops = parcel.getVisitedHops();
@@ -155,7 +163,7 @@ public class ParcelServiceImpl implements ParcelService {
                     }
                 }
             }
-            log.info("Hop with code " + code + " NOT FOUND in futureHops list of Parcel with trackingId " + trackingId);
+            log.error("Hop with code " + code + " NOT FOUND in futureHops list of Parcel with trackingId " + trackingId);
             return null;
         } catch (Exception e) {
             throw new BLException(1L, e.getMessage(), null);

@@ -22,9 +22,11 @@ public class Validator {
     }
 
     public <T> boolean validate(T o) throws BLValidationException {
+        log.info("validating Entity");
         javax.validation.Validator validator = getValidator();
         Set<ConstraintViolation<T>> violations = validator.validate(o);
         if (!violations.isEmpty()) {
+            log.info("found violations");
             for (ConstraintViolation violation : violations) {
                 log.error(violation.getMessage());
                 throw new BLValidationException(1L, violation.getMessage(), null);
@@ -34,9 +36,11 @@ public class Validator {
     }
 
     public <T> Set<ConstraintViolation<T>> validates(T o) throws BLValidationException {
+        log.info("validating Entity");
         javax.validation.Validator validator = getValidator();
         Set<ConstraintViolation<T>> violations = validator.validate(o);
         if (!violations.isEmpty()) {
+            log.info("found violations");
             for (ConstraintViolation violation : violations) {
                 log.error(violation.getMessage());
                 throw new BLValidationException(1L, violation.getMessage(), null);
