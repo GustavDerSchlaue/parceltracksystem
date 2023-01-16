@@ -13,11 +13,11 @@ jobs:
     steps:
       #Check-out your repository under $GITHUB_WORKSPACE, so your workflow can access it
       - uses: actions/checkout@v1
-      #Set up JDK 8
+      #Set up JDK 17
       - name: Set up JDK
         uses: actions/setup-java@v1
         with:
-          java-version: '8'
+          java-version: '17'
       #Set up Maven cache
       - name: Cache Maven packages
         #This action allows caching dependencies and build outputs to improve workflow execution time.
@@ -59,9 +59,9 @@ jobs:
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_session_token: ${{ secrets.AWS_SESSION_TOKEN }}
           use_existing_version_if_available: false
-          application_name: parcelapi3
-          environment_name: Parcelapi3-env
+          application_name: SWKOM
+          environment_name: swkom-env
           version_label: ${{github.SHA}}
           region: us-east-1
-          deployment_package: parceltrackystem-1.22.1.jar.original
+          deployment_package: swagger-spring-1.0.0.jar
           
