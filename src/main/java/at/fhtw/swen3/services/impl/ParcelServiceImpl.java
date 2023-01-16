@@ -124,6 +124,7 @@ public class ParcelServiceImpl implements ParcelService {
     @Override
     public TrackingInformation getTrackingInformation(@NotNull String trackingId) throws Exception {
         TrackingInformation trackingInformation = new TrackingInformation();
+        log.info("TRACKINGID: " + trackingId);
         ParcelEntity parcel = parcelRepository.findByTrackingId(trackingId);
         if(parcel != null) {
             log.info("getTrackingInformation(): Parcel found with this trackingId: " + trackingId);

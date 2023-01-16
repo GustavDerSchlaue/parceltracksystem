@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest(classes = OpenApiGeneratorApplication.class)
 class RecipientRepositoryTest {
 
-   /* @Autowired
+ /*   @Autowired
     private RecipientRepository recipientRepository;
 
 
@@ -23,7 +23,7 @@ class RecipientRepositoryTest {
         recipientEntity.setName("Claudia Klaufmann");
         recipientEntity.setCity("Mauthausen");
         recipientEntity.setPostalCode("1293");
-        recipientEntity.setStreet("Mauthausen Hauptstraße 12");
+        recipientEntity.setStreet("Mauthausen Hauptstrasse 12");
 
         recipientRepository.save(recipientEntity);
 
