@@ -1,5 +1,6 @@
 package at.fhtw.swen3.persistence.repositories;
 
+import at.fhtw.swen3.OpenApiGeneratorApplication;
 import at.fhtw.swen3.persistence.entities.RecipientEntity;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,17 +8,16 @@ import org.springframework.boot.test.context.SpringBootTest;
 import static org.junit.jupiter.api.Assertions.*;
 
 
-@SpringBootTest
+@SpringBootTest(classes = OpenApiGeneratorApplication.class)
 class RecipientRepositoryTest {
 
-    /*@Autowired
+   /* @Autowired
     private RecipientRepository recipientRepository;
+
 
 
     @Test
     void findByName() {
-        assertEquals(true,true);
-
         RecipientEntity recipientEntity = new RecipientEntity();
         recipientEntity.setCountry("Austria");
         recipientEntity.setName("Claudia Klaufmann");
@@ -28,5 +28,6 @@ class RecipientRepositoryTest {
         recipientRepository.save(recipientEntity);
 
         assertEquals(recipientRepository.findByName(recipientEntity.getName()).getName(), recipientEntity.getName());
+
     }*/
 }
