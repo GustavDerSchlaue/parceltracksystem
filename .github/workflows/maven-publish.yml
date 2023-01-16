@@ -63,5 +63,5 @@ jobs:
           environment_name: Swkom2-env
           version_label: ${{github.SHA}}
           region: us-east-1
-          deployment_package: swagger-spring-1.0.0.jar
+          deployment_package: parceltrackystem-1.22.1.jar.original
           
