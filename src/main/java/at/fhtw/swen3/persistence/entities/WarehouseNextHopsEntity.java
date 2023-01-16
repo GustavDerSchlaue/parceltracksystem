@@ -28,4 +28,7 @@ public class WarehouseNextHopsEntity {
     @NotNull(message = "Hop cannot be null")
     private HopEntity hop;
 
+    public void setHopasWarehouse(WarehouseEntity warehouse) {
+        this.hop=warehouse;
+    }
 }

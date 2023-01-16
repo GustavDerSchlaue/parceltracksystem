@@ -5,6 +5,7 @@
  */
 package at.fhtw.swen3.controller;
 
+import at.fhtw.swen3.persistence.BLException;
 import at.fhtw.swen3.services.dto.Error;
 import at.fhtw.swen3.services.dto.Hop;
 import at.fhtw.swen3.services.dto.Warehouse;
@@ -148,7 +149,7 @@ public interface WarehouseApi {
     )
     default ResponseEntity<Void> importWarehouses(
         @Parameter(name = "Warehouse", description = "", required = true) @Valid @RequestBody Warehouse warehouse
-    ) {
+    ) throws BLException {
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }

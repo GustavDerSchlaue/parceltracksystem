@@ -9,8 +9,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class RecipientMapperTest {
-
-    /*@Test
+/*
+    @Test
     void entityToDto() {
         RecipientEntity recipientEntity = new RecipientEntity();
         recipientEntity.setStreet("Maxstraße 1");
